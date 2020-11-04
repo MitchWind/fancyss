@@ -33,7 +33,7 @@ do_build() {
 	rm -f ${MODULE}.tar.gz
 	rm -f $MODULE/.DS_Store
 	rm -f $MODULE/*/.DS_Store
-	tar -zcvf ${MODULE}.tar.gz $MODULE
+	tar -hzcvf ${MODULE}.tar.gz $MODULE
 	md5value=`md5sum ${MODULE}.tar.gz|tr " " "\n"|sed -n 1p`
 	cat > ./version <<-EOF
 	$VERSION
@@ -68,7 +68,7 @@ do_backup(){
 }
 
 
-cp_rules
-sync_v2ray_binary
+#cp_rules
+#sync_v2ray_binary
 do_build
-do_backup
+#do_backup
