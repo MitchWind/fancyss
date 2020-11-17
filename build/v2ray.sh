@@ -9,6 +9,16 @@ OS='linux'
 ARM=7
 ARCH='arm'
 
+
+if [ ! -d $(dirname "$V2RAYDIR") ];then
+    mkdir -p $(dirname "$V2RAYDIR")
+fi
+
+if [ ! -d $(dirname "$BINDIR") ];then
+    mkdir -p $(dirname "$BINDIR")
+fi
+
+
 folder=$(realpath $V2RAYDIR)
 
 
@@ -37,6 +47,7 @@ verif_info(){
     #验证项目文件是否存在
     remote_version=$1
     
+
     #判断项目文件是否为空，不为空验证本地版本与远程版本是否一样，不一样切换到指定版本。为空git最新代码回滚到指定版本
     if [ -d $folder ];then
         locat_version=$(git_branch $folder)
