@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
 MODULE=shadowsocks
 VERSION=`cat ./shadowsocks/ss/version|sed -n 1p`
 TITLE=科学上网
 DESCRIPTION=科学上网
 HOME_URL=Module_shadowsocks.asp
-
+source ../build/v2ray.sh
 cp_rules(){
 	cp -rf ../rules/gfwlist.conf shadowsocks/ss/rules/
 	cp -rf ../rules/chnroute.txt shadowsocks/ss/rules/
